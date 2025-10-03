@@ -175,7 +175,7 @@ const languageCodes = [
 ]
 
 const defaultLang = 'en'
-const lang = ref<string>((route.query.lang as string) || defaultLang)
+const lang = ref(typeof route.query.lang === 'string' ? route.query.lang : defaultLang)
 
 const canonicalBase = 'https://invideo-ai-landing.example.com'
 const canonicalUrl = computed(() => `${canonicalBase}/?lang=${lang.value}`)
@@ -185,7 +185,7 @@ const hreflangs = computed(() => languageCodes.map(code => ({
   href: `${canonicalBase}/?lang=${code}`
 })))
 
-const t = reactive<any>({
+const t = reactive({
   meta: { title: 'InVideo AI', description: '', keywords: '', ogTitle: '', ogDescription: '' },
   ctaPrimary: 'Start free trial + Get exclusive bonus',
   hero: { eyebrow: '', h1: '', sub: '', secondary: '', mockup: '', points: [] },
@@ -215,7 +215,7 @@ function onCtaClick() {
   }
 }
 
-async function loadLocale(code: string) {
+async function loadLocale(code) {
   const mod = await import(`../locale/${code}.js`)
   const data = mod.default
   Object.assign(t, data)
@@ -233,7 +233,7 @@ watch(lang, async (val) => {
   router.replace({ query: { ...route.query, lang: val } })
 })
 
-const benefitsRef = ref<HTMLElement | null>(null)
+const benefitsRef = ref(null)
 function scrollToBenefits() {
   benefitsRef.value?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }

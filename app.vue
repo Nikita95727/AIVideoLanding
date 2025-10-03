@@ -12,10 +12,7 @@
 
 <script setup>
 const route = useRoute()
-const lang = computed(() => (route.query.lang as string) || 'en')
-const locales = {
-  // populated at runtime by lazy import in pages
-} as Record<string, any>
+const lang = computed(() => (typeof route.query.lang === 'string' ? route.query.lang : 'en'))
 
 const currentLocale = reactive({ ctaPrimary: 'Start free trial + Get exclusive bonus' })
 
