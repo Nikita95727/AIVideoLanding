@@ -1,19 +1,54 @@
 // Nuxt 3 configuration (JavaScript) for InVideo AI pre-lander
 export default defineNuxtConfig({
   srcDir: '.',
+  
+  modules: [
+    '@nuxtjs/sitemap'
+  ],
+  
   css: ['@/assets/css/tailwind.css'],
+  
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {}
     }
   },
+  
   runtimeConfig: {
     public: {
       affiliateBaseUrl: process.env.AFFILIATE_URL || 'https://invideo.io',
       affiliateParams: process.env.AFFILIATE_PARAMS || 'utm_source=prelander&utm_medium=cpl&utm_campaign=ai_short_form'
     }
   },
+  
+  site: {
+    url: 'https://ai-video-landing.vercel.app',
+    name: 'InVideo AI Landing'
+  },
+  
+  sitemap: {
+    strictNuxtContentPaths: true,
+    exclude: [
+      '/api/**'
+    ],
+    urls: async () => {
+      const languages = ['en', 'es', 'zh', 'hi', 'fr', 'ar', 'pt', 'ru', 'de', 'ja', 'uk']
+      return languages.map(lang => ({
+        loc: `/?lang=${lang}`,
+        changefreq: 'weekly',
+        priority: lang === 'en' ? 1.0 : 0.8,
+        alternatives: languages.map(l => ({
+          hreflang: l,
+          href: `https://ai-video-landing.vercel.app/?lang=${l}`
+        })).concat([{
+          hreflang: 'x-default',
+          href: 'https://ai-video-landing.vercel.app/?lang=en'
+        }])
+      }))
+    }
+  },
+  
   app: {
     head: {
       charset: 'utf-8',
@@ -32,11 +67,13 @@ export default defineNuxtConfig({
       ]
     }
   },
+  
   nitro: {
     prerender: {
       routes: ['/']
     }
   },
+  
   compatibilityDate: '2024-12-18'
 })
 
