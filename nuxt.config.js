@@ -21,7 +21,7 @@ export default defineNuxtConfig({
       meta: [
         { name: 'theme-color', content: '#0F172A' },
         { name: 'color-scheme', content: 'light' },
-        { name: 'google-site-verification', content: 'FXV4cONS5z9TB7kRa37hoAYMm6BuN7rTdO9l0De27vI' },
+        { name: 'google-site-verification', content: 'G7SKoVRUHs-Skaf5oYvan-2iFnXsAvYA-uaftVi5Yto' },
         { property: 'og:site_name', content: 'InVideo AI Landing' }
       ],
       link: [
