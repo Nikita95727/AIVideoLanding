@@ -164,7 +164,7 @@
   </main>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const runtimeConfig = useRuntimeConfig()
 const route = useRoute()
 const router = useRouter()

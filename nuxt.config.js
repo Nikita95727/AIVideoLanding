@@ -1,4 +1,4 @@
-// Nuxt 3 configuration for InVideo AI landing
+// Nuxt 3 configuration (JavaScript) for InVideo AI pre-lander
 export default defineNuxtConfig({
   srcDir: '.',
   css: ['@/assets/css/tailwind.css'],
@@ -36,10 +36,6 @@ export default defineNuxtConfig({
     prerender: {
       routes: ['/']
     }
-  },
-  typescript: {
-    strict: true,
-    typeCheck: false
   },
   compatibilityDate: '2024-12-18'
 })

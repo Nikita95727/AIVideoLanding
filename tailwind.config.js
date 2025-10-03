@@ -1,13 +1,12 @@
-import type { Config } from 'tailwindcss'
-
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     './app.vue',
-    './components/**/*.{vue,js,ts}',
+    './components/**/*.{vue,js}',
     './layouts/**/*.vue',
     './pages/**/*.vue',
-    './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}'
+    './plugins/**/*.{js}',
+    './nuxt.config.{js}'
   ],
   theme: {
     extend: {
@@ -51,5 +50,5 @@ export default {
     }
   },
   plugins: [require('@tailwindcss/forms')]
-} satisfies Config
+}
 

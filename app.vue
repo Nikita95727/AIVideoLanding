@@ -10,7 +10,7 @@
   </ClientOnly>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const route = useRoute()
 const lang = computed(() => (route.query.lang as string) || 'en')
 const locales = {
