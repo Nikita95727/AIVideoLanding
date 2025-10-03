@@ -4,6 +4,7 @@
       <Title>{{ t.meta.title }}</Title>
       <Meta name="description" :content="t.meta.description" />
       <Meta name="keywords" :content="t.meta.keywords" />
+      <Meta name="google-site-verification" content="G7SKoVRUHs-Skaf5oYvan-2iFnXsAvYA-uaftVi5Yto" />
       <Meta property="og:title" :content="t.meta.ogTitle" />
       <Meta property="og:description" :content="t.meta.ogDescription" />
       <Meta property="og:type" content="website" />
