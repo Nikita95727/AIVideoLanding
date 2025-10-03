@@ -1,24 +1,5 @@
 <template>
   <main>
-    <Head>
-      <Title>{{ t.meta.title }}</Title>
-      <Meta name="description" :content="t.meta.description" />
-      <Meta name="keywords" :content="t.meta.keywords" />
-      <Meta name="google-site-verification" content="G7SKoVRUHs-Skaf5oYvan-2iFnXsAvYA-uaftVi5Yto" />
-      <Meta property="og:title" :content="t.meta.ogTitle" />
-      <Meta property="og:description" :content="t.meta.ogDescription" />
-      <Meta property="og:type" content="website" />
-      <Meta property="og:url" :content="canonicalUrl" />
-      <Meta property="og:image" content="/og.jpg" />
-      <Meta name="twitter:card" content="summary_large_image" />
-      <Meta name="twitter:title" :content="t.meta.ogTitle" />
-      <Meta name="twitter:description" :content="t.meta.ogDescription" />
-      <Link rel="canonical" :href="canonicalUrl" />
-      <Link rel="alternate" hreflang="x-default" :href="canonicalBase" />
-      <template v-for="l in hreflangs" :key="l.href">
-        <Link rel="alternate" :href="l.href" :hreflang="l.lang" />
-      </template>
-    </Head>
 
     <!-- Header -->
     <header class="sticky top-0 z-40 bg-surface-900/70 backdrop-blur supports-[backdrop-filter]:glass border-b border-white/5">
@@ -244,6 +225,25 @@ useHead(() => ({
     lang: lang.value,
     dir: ['ar'].includes(lang.value) ? 'rtl' : 'ltr'
   },
+  title: t.meta.title,
+  meta: [
+    { name: 'description', content: t.meta.description },
+    { name: 'keywords', content: t.meta.keywords },
+    { name: 'google-site-verification', content: 'G7SKoVRUHs-Skaf5oYvan-2iFnXsAvYA-uaftVi5Yto' },
+    { property: 'og:title', content: t.meta.ogTitle },
+    { property: 'og:description', content: t.meta.ogDescription },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: canonicalUrl.value },
+    { property: 'og:image', content: '/og.jpg' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: t.meta.ogTitle },
+    { name: 'twitter:description', content: t.meta.ogDescription }
+  ],
+  link: [
+    { rel: 'canonical', href: canonicalUrl.value },
+    { rel: 'alternate', hreflang: 'x-default', href: canonicalBase },
+    ...hreflangs.value.map(l => ({ rel: 'alternate', hreflang: l.lang, href: l.href }))
+  ],
   script: [
     {
       type: 'application/ld+json',
@@ -268,6 +268,39 @@ useHead(() => ({
           target: `${canonicalBase}/?q={search_term_string}`,
           'query-input': 'required name=search_term_string'
         }
+      })
+    },
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": t.faq?.q1 || 'Can I generate multiple Shorts at once?',
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": t.faq?.a1 || 'Yes — queue prompts and templates to generate and edit in batches.'
+            }
+          },
+          {
+            "@type": "Question",
+            "name": t.faq?.q2 || 'Will captions and brand kit apply automatically?',
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": t.faq?.a2 || 'Auto-captions support emojis and highlight styles; brand kit persists across videos.'
+            }
+          },
+          {
+            "@type": "Question",
+            "name": t.faq?.q3 || 'Which platforms are supported?',
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": t.faq?.a3 || 'YouTube Shorts, TikTok, and Instagram Reels with perfect exports.'
+            }
+          }
+        ]
       })
     }
   ]
