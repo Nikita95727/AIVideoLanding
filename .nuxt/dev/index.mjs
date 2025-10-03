@@ -1028,7 +1028,7 @@ const _xk6UcU7o8AYV54A1V_9QUdahkJmrqIZ650jucFuIYU = (function(nitro) {
 
 const rootDir = "/Users/macbook/Documents/AIVideoLanding";
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1"},{"charset":"utf-8"},{"name":"theme-color","content":"#0F172A"},{"name":"color-scheme","content":"light"},{"property":"og:site_name","content":"InVideo AI Landing"}],"link":[{"rel":"icon","type":"image/svg+xml","href":"/favicon.svg"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1, maximum-scale=1"};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=1"},{"charset":"utf-8"},{"name":"theme-color","content":"#0F172A"},{"name":"color-scheme","content":"light"},{"name":"google-site-verification","content":"G7SKoVRUHs-Skaf5oYvan-2iFnXsAvYA-uaftVi5Yto"},{"property":"og:site_name","content":"InVideo AI Landing"}],"link":[{"rel":"icon","type":"image/svg+xml","href":"/favicon.svg"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"}],"style":[],"script":[],"noscript":[],"charset":"utf-8","viewport":"width=device-width, initial-scale=1, maximum-scale=1"};
 
 const appRootTag = "div";
 
