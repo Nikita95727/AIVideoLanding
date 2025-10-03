@@ -1,0 +1,1 @@
+export { default } from "file:///Users/macbook/Documents/AIVideoLanding/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
