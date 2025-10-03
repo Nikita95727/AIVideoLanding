@@ -1,0 +1,14 @@
+# robots.txt for InVideo AI Landing Page
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ai-video-landing.vercel.app/sitemap.xml
+
+# Disallow admin/private areas (if any in future)
+Disallow: /_nuxt/
+Disallow: /api/
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
+
